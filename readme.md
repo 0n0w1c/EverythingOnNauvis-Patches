@@ -1,7 +1,5 @@
 ### EverythingOnNauvis - Patches
 
-*Patches the mod EverythingOnNauvis*
-
 * Atomic bomb leaves nuclear ground
 * Fish no longer spawn in lava
 * Dead grey trunk no longer spawn on Vulcanus terrain
