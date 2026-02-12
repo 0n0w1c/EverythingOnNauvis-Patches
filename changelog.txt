@@ -1,0 +1,11 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2026-02-12
+  Changes:
+    - None
+  Bugfixes:
+    - Atomic bomb now leaves nuclear ground
+    - Fish no longer spawn in lava
+    - Dead grey trunk no longer spawn in Vulcanus terrain
+    - Ashland and flaming ashland trees now spawn in Vulcanus terrain
+    - Lubricant added as a technology prerequisite for the foundry technology

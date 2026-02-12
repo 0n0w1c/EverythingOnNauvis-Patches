@@ -1,0 +1,15 @@
+{
+    "name": "EverythingOnNauvis-Patches",
+    "version": "0.0.1",
+    "title": "Everything on Nauvis: Patches",
+    "description": "Patches the mod EverythingOnNauvis",
+    "author": "0n0w1c",
+    "contact": "",
+    "factorio_version": "2.0",
+    "space_travel_required": true,
+    "dependencies": [
+        "base >= 2.0.47",
+        "space-age >= 2.0.47",
+        "EverythingOnNauvis"
+    ]
+}
