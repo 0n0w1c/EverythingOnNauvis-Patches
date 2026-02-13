@@ -1,40 +1,40 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2026-02-13
+  Bugfixes:
+    - None
   Changes:
     - Startup option to use tungsten plate in the foundry recipe
       (Requires harvesting demolisher corpses to craft the first foundry)
-  Bugfixes:
-    - None
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 2026-02-13
-  Changes:
-    - None
   Bugfixes:
     - Corrected a misplaced "end"
+  Changes:
+    - None
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2026-02-13
-  Changes:
-    - None
   Bugfixes:
     - Added startup setting to enable Gleba enemies to react to pollution (default: disabled)
+  Changes:
+    - None
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.2
 Date: 2026-02-12
-  Changes:
-    - None
   Bugfixes:
     - Calcite can be mined by all mining drills
+  Changes:
+    - None
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.1
 Date: 2026-02-12
-  Changes:
-    - None
   Bugfixes:
     - Atomic bomb now leaves nuclear ground
     - Fish no longer spawn in lava
     - Dead grey trunk no longer spawn in Vulcanus terrain
     - Ashland and flaming ashland trees now spawn in Vulcanus terrain
     - Lubricant added as a technology prerequisite for the foundry technology
+  Changes:
+    - None
