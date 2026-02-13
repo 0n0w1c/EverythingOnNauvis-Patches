@@ -75,3 +75,8 @@ data.raw.planet["nauvis"].map_gen_settings.autoplace_settings.entity.settings["a
 -- Fix: Add lubricant as a prerequisite for the foundry technology
 -- ---------------------------------------------------------------------------
 table.insert(data.raw["technology"]["foundry"].prerequisites, "lubricant")
+
+-- ---------------------------------------------------------------------------
+-- Fix: Remove calcite resource category
+-- ---------------------------------------------------------------------------
+data.raw["resource"]["calcite"].category = nil
