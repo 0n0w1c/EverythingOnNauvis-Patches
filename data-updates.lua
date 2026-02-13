@@ -126,28 +126,28 @@ if setting and setting.value then
     for _, proto in pairs(data.raw["unit-spawner"] or {}) do
         move_key_spores_to_pollution(proto.absorptions_per_second)
     end
-end
 
-if data.raw["plant"]["jellystem"] then
-    data.raw["plant"]["jellystem"].harvest_emissions = {
-        pollution = 15,
-    }
-end
+    if data.raw["plant"]["jellystem"] then
+        data.raw["plant"]["jellystem"].harvest_emissions = {
+            pollution = 15,
+        }
+    end
 
-if data.raw["plant"]["yumako-tree"] then
-    data.raw["plant"]["yumako-tree"].harvest_emissions = {
-        pollution = 15,
-    }
-end
+    if data.raw["plant"]["yumako-tree"] then
+        data.raw["plant"]["yumako-tree"].harvest_emissions = {
+            pollution = 15,
+        }
+    end
 
-if data.raw["agricultural-tower"]["agricultural-camp"] then
-    data.raw["agricultural-tower"]["agricultural-camp"].energy_source.emissions_per_minute = {
-        pollution = 4,
-    }
-end
+    if data.raw["agricultural-tower"]["agricultural-camp"] then
+        data.raw["agricultural-tower"]["agricultural-camp"].energy_source.emissions_per_minute = {
+            pollution = 4,
+        }
+    end
 
-if data.raw["agricultural-tower"]["agricultural-tower"] then
-    data.raw["agricultural-tower"]["agricultural-tower"].energy_source.emissions_per_minute = {
-        pollution = 4,
-    }
+    if data.raw["agricultural-tower"]["agricultural-tower"] then
+        data.raw["agricultural-tower"]["agricultural-tower"].energy_source.emissions_per_minute = {
+            pollution = 4,
+        }
+    end
 end
