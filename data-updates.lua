@@ -184,10 +184,10 @@ if use_tungsten_setting and use_tungsten_setting.value then
                 ingredient.name = "tungsten-plate"
             end
         end
-    end
 
-    if mods["quality"] then
-        local recycling = require("__quality__/prototypes/recycling")
-        recycling.generate_recycling_recipe(foundry_recipe)
+        if mods["quality"] then
+            local recycling = require("__quality__/prototypes/recycling")
+            recycling.generate_recycling_recipe(foundry_recipe)
+        end
     end
 end
