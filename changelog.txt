@@ -5,7 +5,7 @@ Date: 2026-02-13
     - None
   Changes:
     - Startup option to use tungsten plate in the foundry recipe
-      (Requires harvesting demolisher corpses to craft the first foundry)
+      (Requires harvesting demolisher corpse to craft the first foundry)
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 2026-02-13
