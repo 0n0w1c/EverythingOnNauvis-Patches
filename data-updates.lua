@@ -74,9 +74,80 @@ data.raw.planet["nauvis"].map_gen_settings.autoplace_settings.entity.settings["a
 -- ---------------------------------------------------------------------------
 -- Fix: Add lubricant as a prerequisite for the foundry technology
 -- ---------------------------------------------------------------------------
-table.insert(data.raw["technology"]["foundry"].prerequisites, "lubricant")
+local foundry = data.raw["technology"]["foundry"]
+if foundry and foundry.prerequisites then
+    local found = false
+    for _, prerequisite in ipairs(foundry.prerequisites) do
+        if prerequisite == "lubricant" then
+            found = true
+            break
+        end
+    end
+
+    if not found then table.insert(foundry.prerequisites, "lubricant") end
+end
 
 -- ---------------------------------------------------------------------------
 -- Fix: Remove calcite resource category
 -- ---------------------------------------------------------------------------
-data.raw["resource"]["calcite"].category = nil
+local calcite = data.raw["resource"]["calcite"]
+if calcite then
+    calcite.category = nil
+end
+
+-- ---------------------------------------------------------------------------
+-- Fix: Gleba units react to pollution
+-- ---------------------------------------------------------------------------
+local setting = settings.startup["eon_patch_gleba_enemies_react_to_pollution"]
+if setting and setting.value then
+    local function move_key_spores_to_pollution(absorptions)
+        if not absorptions then return end
+        if absorptions.spores == nil then return end
+
+        if absorptions.pollution == nil then
+            absorptions.pollution = absorptions.spores
+        end
+
+        absorptions.spores = nil
+    end
+
+    for _, tile in pairs(data.raw["tile"] or {}) do
+        move_key_spores_to_pollution(tile.absorptions_per_second)
+    end
+
+    for _, proto in pairs(data.raw["unit"] or {}) do
+        move_key_spores_to_pollution(proto.absorptions_to_join_attack)
+    end
+
+    for _, proto in pairs(data.raw["spider-unit"] or {}) do
+        move_key_spores_to_pollution(proto.absorptions_to_join_attack)
+    end
+
+    for _, proto in pairs(data.raw["unit-spawner"] or {}) do
+        move_key_spores_to_pollution(proto.absorptions_per_second)
+    end
+end
+
+if data.raw["plant"]["jellystem"] then
+    data.raw["plant"]["jellystem"].harvest_emissions = {
+        pollution = 15,
+    }
+end
+
+if data.raw["plant"]["yumako-tree"] then
+    data.raw["plant"]["yumako-tree"].harvest_emissions = {
+        pollution = 15,
+    }
+end
+
+if data.raw["agricultural-tower"]["agricultural-camp"] then
+    data.raw["agricultural-tower"]["agricultural-camp"].energy_source.emissions_per_minute = {
+        pollution = 4,
+    }
+end
+
+if data.raw["agricultural-tower"]["agricultural-tower"] then
+    data.raw["agricultural-tower"]["agricultural-tower"].energy_source.emissions_per_minute = {
+        pollution = 4,
+    }
+end
