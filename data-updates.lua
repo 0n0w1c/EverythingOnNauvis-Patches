@@ -1,7 +1,7 @@
 -- ---------------------------------------------------------------------------
 -- Fix: Remove lava and ammoniacal solution tiles from the effects
 -- ---------------------------------------------------------------------------
-local projectile = data.raw.projectile and data.raw.projectile["atomic-rocket"]
+local projectile = data.raw["projectile"]["atomic-rocket"]
 if projectile
     and projectile.action
     and projectile.action.action_delivery
@@ -98,8 +98,8 @@ end
 -- ---------------------------------------------------------------------------
 -- Fix: Gleba units react to pollution
 -- ---------------------------------------------------------------------------
-local setting = settings.startup["eon_patch_gleba_enemies_react_to_pollution"]
-if setting and setting.value then
+local pollution_setting = settings.startup["eon_patch_gleba_enemies_react_to_pollution"]
+if pollution_setting and pollution_setting.value then
     local function move_key_spores_to_pollution(absorptions)
         if not absorptions then return end
         if absorptions.spores == nil then return end
@@ -149,5 +149,45 @@ if setting and setting.value then
         data.raw["agricultural-tower"]["agricultural-tower"].energy_source.emissions_per_minute = {
             pollution = 4,
         }
+    end
+end
+
+-- ---------------------------------------------------------------------------
+-- Fix: Use tungsten-plate
+-- ---------------------------------------------------------------------------
+local use_tungsten_setting = settings.startup["eon_patch_use_tungsten_plate"]
+if use_tungsten_setting and use_tungsten_setting.value then
+    local demolisher_corpses = {
+        "small-demolisher-corpse",
+        "medium-demolisher-corpse",
+        "big-demolisher-corpse",
+    }
+
+    for _, name in ipairs(demolisher_corpses) do
+        local corpse = data.raw["simple-entity"] and data.raw["simple-entity"][name]
+        local minable = corpse and corpse.minable
+        local results = minable and minable.results
+
+        if results then
+            for _, result in pairs(results) do
+                if result.type == "item" and result.name == "tungsten-ore" then
+                    result.name = "tungsten-plate"
+                end
+            end
+        end
+    end
+
+    local foundry_recipe = data.raw["recipe"]["foundry"]
+    if foundry_recipe and not foundry_recipe.hidden then
+        for _, ingredient in pairs(foundry_recipe.ingredients) do
+            if ingredient.name == "tungsten-carbide" then
+                ingredient.name = "tungsten-plate"
+            end
+        end
+    end
+
+    if mods["quality"] then
+        local recycling = require("__quality__/prototypes/recycling")
+        recycling.generate_recycling_recipe(foundry_recipe)
     end
 end

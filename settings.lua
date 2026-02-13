@@ -6,4 +6,11 @@ data:extend({
         default_value = false,
         order = "a",
     },
+    {
+        type = "bool-setting",
+        name = "eon_patch_use_tungsten_plate",
+        setting_type = "startup",
+        default_value = false,
+        order = "b",
+    },
 })
