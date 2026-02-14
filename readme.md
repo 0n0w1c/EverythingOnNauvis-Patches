@@ -8,5 +8,5 @@
 ---
 #### Settings:
 * Gleba natives react to pollution *(default: disabled)*
-* Foundry made with tungsten plate *(default: disabled)*
+* Foundry made with tungsten plate *(default: disabled)*  
   (Requires harvesting demolisher remains to craft the first foundry)  
