@@ -4,7 +4,7 @@ Date: 2026-02-13
   Bugfixes:
     - None
   Changes:
-    - Startup option to use tungsten plate in the foundry recipe
+    - Startup setting to use tungsten plate in the foundry recipe
       (Requires harvesting demolisher remains to craft the first foundry)
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
