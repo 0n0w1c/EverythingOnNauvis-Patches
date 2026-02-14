@@ -48,7 +48,7 @@ data:extend({
         type = "noise-expression",
         name = "eon_vulcanus_ashland_tree_density",
         -- 0.02 = baseline chance, 0.1 = how “patchy”
-        expression = "clamp(0.02 + 0.1 * tree_small_noise, 0, 1)"
+        expression = "clamp(0.02 + 0.8 * tree_small_noise, 0, 1)"
     },
 })
 
@@ -65,11 +65,30 @@ local function spawn_tree_in_vulcanus(tree_name, multiplier)
         ")"
 end
 
-spawn_tree_in_vulcanus("ashland-lichen-tree", 1.0)
-spawn_tree_in_vulcanus("ashland-lichen-tree-flaming", 0.25)
+spawn_tree_in_vulcanus("ashland-lichen-tree", 0.05)
+spawn_tree_in_vulcanus("ashland-lichen-tree-flaming", 0.02)
 
 data.raw.planet["nauvis"].map_gen_settings.autoplace_settings.entity.settings["ashland-lichen-tree"] = {}
 data.raw.planet["nauvis"].map_gen_settings.autoplace_settings.entity.settings["ashland-lichen-tree-flaming"] = {}
+
+-- ---------------------------------------------------------------------------
+-- Fix: Scale down the number vulcanus simple entity spawned
+-- ---------------------------------------------------------------------------
+local function scale_entity_autoplace(type_name, entity_name, factor)
+    local proto = data.raw[type_name] and data.raw[type_name][entity_name]
+    if proto and proto.autoplace and proto.autoplace.probability_expression then
+        proto.autoplace.probability_expression =
+            "(" .. factor .. ") * (" .. proto.autoplace.probability_expression .. ")"
+    end
+end
+
+scale_entity_autoplace("simple-entity", "vulcanus-chimney", 0.2)
+scale_entity_autoplace("simple-entity", "vulcanus-chimney-faded", 0.2)
+scale_entity_autoplace("simple-entity", "vulcanus-chimney-cold", 0.2)
+scale_entity_autoplace("simple-entity", "vulcanus-chimney-short", 0.2)
+scale_entity_autoplace("simple-entity", "vulcanus-chimney-truncated", 0.2)
+scale_entity_autoplace("simple-entity", "huge-volcanic-rock", 0.4)
+scale_entity_autoplace("simple-entity", "big-volcanic-rock", 0.4)
 
 -- ---------------------------------------------------------------------------
 -- Fix: Add lubricant as a prerequisite for the foundry technology
