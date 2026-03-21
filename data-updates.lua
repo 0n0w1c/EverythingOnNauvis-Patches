@@ -23,7 +23,7 @@ then
 end
 
 -- ---------------------------------------------------------------------------
--- Fix: Remove fish from Vulcanus areas
+-- Fix: Remove fish from Vulcanus terrain
 -- ---------------------------------------------------------------------------
 local fish = data.raw["fish"] and data.raw["fish"]["fish"]
 if fish and fish.autoplace and fish.autoplace.probability_expression then
@@ -32,16 +32,17 @@ if fish and fish.autoplace and fish.autoplace.probability_expression then
 end
 
 -- ---------------------------------------------------------------------------
--- Fix: Remove dead-grey-trunk from Vulcanus areas
+-- Fix: Remove dead-grey-trunk from Vulcanus and Gleba terrain
 -- ---------------------------------------------------------------------------
 local dead_tree = data.raw["tree"] and data.raw["tree"]["dead-grey-trunk"]
 if dead_tree and dead_tree.autoplace and dead_tree.autoplace.probability_expression then
+    local expr = dead_tree.autoplace.probability_expression
     dead_tree.autoplace.probability_expression =
-        "eon_mask_off_vulcano_terrain(" .. dead_tree.autoplace.probability_expression .. ")"
+        "eon_mask_off_gleba_territory(eon_mask_off_vulcano_terrain(" .. expr .. "))"
 end
 
 -- ---------------------------------------------------------------------------
--- Fix: Add ashland trees to Vulcanus areas
+-- Fix: Add ashland trees to Vulcanus terrain
 -- ---------------------------------------------------------------------------
 data:extend({
     {
