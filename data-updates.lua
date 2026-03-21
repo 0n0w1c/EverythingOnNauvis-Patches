@@ -38,7 +38,7 @@ local dead_tree = data.raw["tree"] and data.raw["tree"]["dead-grey-trunk"]
 if dead_tree and dead_tree.autoplace and dead_tree.autoplace.probability_expression then
     local expr = dead_tree.autoplace.probability_expression
     dead_tree.autoplace.probability_expression =
-        "eon_mask_off_gleba_territory(eon_mask_off_vulcano_terrain(" .. expr .. "))"
+        "eon_mask_off_aquilo_territory(eon_mask_off_gleba_territory(eon_mask_off_vulcano_terrain(" .. expr .. ")))"
 end
 
 -- ---------------------------------------------------------------------------
