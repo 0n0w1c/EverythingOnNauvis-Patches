@@ -6,7 +6,10 @@
 * Reduced number of simple entities spawned on Vulcanus terrain
 * Lubricant technology added as a prerequisite for the foundry technology
 * Calcite can be mined by all mining drills
+* Slowed demolisher size progression
+
 ---
+
 #### Settings:
 * Gleba natives react to pollution *(default: disabled)*
 * Foundry made with tungsten plate *(default: disabled)*  

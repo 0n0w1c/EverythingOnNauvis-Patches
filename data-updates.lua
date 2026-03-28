@@ -211,3 +211,10 @@ if use_tungsten_setting and use_tungsten_setting.value then
         end
     end
 end
+
+
+-- ---------------------------------------------------------------------------
+-- Fix: Slow demolisher size progression
+-- ---------------------------------------------------------------------------
+data.raw["noise-expression"]["demolisher_variation_expression"].expression =
+"floor(clamp(distance / (30 * 32) - 0.25, 0, 4)) + (-99 * no_enemies_mode)"
