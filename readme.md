@@ -2,7 +2,7 @@ Fix-ups for [Everything on Nauvis](https://mods.factorio.com/mod/EverythingOnNau
 
 #### Patches:
 * Atomic bomb leaves nuclear ground
-* Fish no longer spawn in lava
+* Fish no longer spawn in lava or ammonia ocean
 * Dead grey trunk spawn only on Nauvis terrain
 * Ashland and flaming ashland trees spawn on Vulcanus terrain
 * Reduced number of simple entities spawned on Vulcanus terrain
