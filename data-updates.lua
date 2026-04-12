@@ -23,12 +23,12 @@ then
 end
 
 -- ---------------------------------------------------------------------------
--- Fix: Remove fish from Vulcanus terrain
+-- Fix: Remove fish from Aquilo and Vulcanus terrain
 -- ---------------------------------------------------------------------------
 local fish = data.raw["fish"] and data.raw["fish"]["fish"]
 if fish and fish.autoplace and fish.autoplace.probability_expression then
     fish.autoplace.probability_expression =
-        "eon_mask_off_vulcano_terrain(" .. fish.autoplace.probability_expression .. ")"
+        "eon_mask_off_aquilo_territory(eon_mask_off_vulcano_terrain(" .. fish.autoplace.probability_expression .. "))"
 end
 
 -- ---------------------------------------------------------------------------
